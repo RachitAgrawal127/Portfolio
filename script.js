@@ -505,9 +505,35 @@ function initMobileMenu() {
 
     // Close menu when clicking a link
     navLinkItems.forEach(link => {
-        link.addEventListener('click', () => {
-            // Small delay to ensure navigation starts before menu closes/DOM changes
-            setTimeout(closeMenu, 50);
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // Take full control of the click
+
+            const href = link.getAttribute('href');
+
+            // Close menu first
+            closeMenu();
+
+            // Handle navigation manually
+            if (href && href.startsWith('#')) {
+                // Internal link - scroll smoothly
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    // Small delay to allow menu close animation to start/body overflow to reset
+                    setTimeout(() => {
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }, 100); // 100ms delay for smoothness
+                }
+            } else if (href) {
+                // External link - navigate immediately
+                window.location.href = href;
+            }
         });
     });
 }
