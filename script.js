@@ -473,33 +473,49 @@ function initMobileMenu() {
 
     if (!navToggle || !navLinks) return;
 
-    // Toggle menu
-    navToggle.addEventListener('click', () => {
+    // Helper function to toggle menu
+    const toggleMenu = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         navToggle.classList.toggle('active');
         navLinks.classList.toggle('active');
         if (navOverlay) navOverlay.classList.toggle('active');
 
         // Prevent body scroll when menu is open
         document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-    });
+    };
 
-    // Close menu when clicking overlay
+    // Helper function to close menu
+    const closeMenu = () => {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+        if (navOverlay) navOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    // Toggle menu - both click and touch
+    navToggle.addEventListener('click', toggleMenu);
+    navToggle.addEventListener('touchend', toggleMenu);
+
+    // Close menu when clicking/touching overlay
     if (navOverlay) {
-        navOverlay.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            navLinks.classList.remove('active');
-            navOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+        navOverlay.addEventListener('click', closeMenu);
+        navOverlay.addEventListener('touchend', closeMenu);
     }
 
-    // Close menu when clicking a link
+    // Close menu when clicking/touching a link
     navLinkItems.forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            navLinks.classList.remove('active');
-            if (navOverlay) navOverlay.classList.remove('active');
-            document.body.style.overflow = '';
+        link.addEventListener('click', (e) => {
+            closeMenu();
+            // Allow the link navigation to happen
+        });
+        link.addEventListener('touchend', (e) => {
+            closeMenu();
+            // Navigate to the href
+            const href = link.getAttribute('href');
+            if (href) {
+                window.location.href = href;
+            }
         });
     });
 }
