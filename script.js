@@ -473,26 +473,43 @@ function initMobileMenu() {
 
     if (!navToggle || !navLinks) return;
 
+    let scrollPosition = 0;
+
     // Toggle menu - use click for reliability
     const toggleHandler = (e) => {
         e.preventDefault();
         e.stopPropagation();
+
+        const isOpening = !navLinks.classList.contains('active');
+
+        if (isOpening) {
+            // Store scroll position and lock body
+            scrollPosition = window.pageYOffset;
+            document.body.classList.add('menu-open');
+            document.body.style.top = `-${scrollPosition}px`;
+        } else {
+            // Restore scroll position and unlock body
+            document.body.classList.remove('menu-open');
+            document.body.style.top = '';
+            window.scrollTo(0, scrollPosition);
+        }
+
         navToggle.classList.toggle('active');
         navLinks.classList.toggle('active');
         if (navOverlay) navOverlay.classList.toggle('active');
-
-        // Prevent body scroll when menu is open
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
     };
 
     navToggle.addEventListener('click', toggleHandler);
 
     // Close menu function
     const closeMenu = () => {
+        document.body.classList.remove('menu-open');
+        document.body.style.top = '';
+        window.scrollTo(0, scrollPosition);
+
         navToggle.classList.remove('active');
         navLinks.classList.remove('active');
         if (navOverlay) navOverlay.classList.remove('active');
-        document.body.style.overflow = '';
     };
 
     // Close menu when clicking overlay
