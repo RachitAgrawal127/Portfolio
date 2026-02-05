@@ -473,8 +473,8 @@ function initMobileMenu() {
 
     if (!navToggle || !navLinks) return;
 
-    // Helper function to toggle menu
-    const toggleMenu = (e) => {
+    // Toggle menu - use click for reliability
+    const toggleHandler = (e) => {
         e.preventDefault();
         e.stopPropagation();
         navToggle.classList.toggle('active');
@@ -485,7 +485,9 @@ function initMobileMenu() {
         document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
     };
 
-    // Helper function to close menu
+    navToggle.addEventListener('click', toggleHandler);
+
+    // Close menu function
     const closeMenu = () => {
         navToggle.classList.remove('active');
         navLinks.classList.remove('active');
@@ -493,29 +495,19 @@ function initMobileMenu() {
         document.body.style.overflow = '';
     };
 
-    // Toggle menu - both click and touch
-    navToggle.addEventListener('click', toggleMenu);
-    navToggle.addEventListener('touchend', toggleMenu);
-
-    // Close menu when clicking/touching overlay
+    // Close menu when clicking overlay
     if (navOverlay) {
-        navOverlay.addEventListener('click', closeMenu);
-        navOverlay.addEventListener('touchend', closeMenu);
+        navOverlay.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent ghost clicks
+            closeMenu();
+        });
     }
 
-    // Close menu when clicking/touching a link
+    // Close menu when clicking a link
     navLinkItems.forEach(link => {
-        link.addEventListener('click', (e) => {
-            closeMenu();
-            // Allow the link navigation to happen
-        });
-        link.addEventListener('touchend', (e) => {
-            closeMenu();
-            // Navigate to the href
-            const href = link.getAttribute('href');
-            if (href) {
-                window.location.href = href;
-            }
+        link.addEventListener('click', () => {
+            // Small delay to ensure navigation starts before menu closes/DOM changes
+            setTimeout(closeMenu, 50);
         });
     });
 }
