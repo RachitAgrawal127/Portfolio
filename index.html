@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Rachit Agrawal - Software Engineer & Algorithmic Problem Solver. Incoming Summer 2026 Intern at Google. Expert Competitive Programmer.">
+    <title>Rachit Agrawal | Software Engineer & CP Expert</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Particles Background -->
+    <div id="tsparticles"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-logo">RA</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#stats">Stats</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge google-badge">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google"
+                        class="google-logo">
+                    <span class="badge-text" id="typed-badge"></span>
+                </div>
+                <h1 class="hero-title">Rachit Agrawal</h1>
+                <p class="hero-tagline">Software Engineer & Algorithmic Problem Solver.</p>
+                <p class="hero-bio">
+                    B.Tech CSE student at <span class="highlight">IIITM Gwalior |</span>
+                    <span class="highlight-cyan">Expert on Codeforces</span> Bridging High-Level Algorithmic Problem
+                    Solving with Scalable Backend Architecture.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary magnetic">View Projects</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-glow"></div>
+                <div class="image-shape"></div>
+                <div class="profile-container" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare
+                    data-tilt-max-glare="0.3">
+                    <img src="assets/profile.jpg" alt="Rachit Agrawal" class="profile-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CP Dashboard Section -->
+    <section id="stats" class="stats-section">
+        <div class="section-header">
+            <h2 class="section-title" data-text="COMPETITIVE PROGRAMMING">COMPETITIVE PROGRAMMING</h2>
+            <p class="section-subtitle">Dashboard & Statistics</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card glass" data-aos="fade-up">
+                <div class="stat-icon codeforces">
+                    <img src="https://cdn.iconscout.com/icon/free/png-256/free-codeforces-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-vol-3-pack-logos-icons-2944796.png"
+                        alt="Codeforces" class="platform-logo">
+                </div>
+                <div class="stat-content">
+                    <h3>Codeforces</h3>
+                    <div class="stat-value">
+                        <span class="counter" data-target="1607">0</span>
+                        <span class="stat-label">Expert</span>
+                    </div>
+                    <p class="stat-detail">Top 15% globally</p>
+                </div>
+            </div>
+
+            <div class="stat-card glass" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-icon codechef">
+                    <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="CodeChef" class="platform-logo">
+                </div>
+                <div class="stat-content">
+                    <h3>CodeChef</h3>
+                    <div class="stat-value">
+                        <span class="counter" data-target="1721">0</span>
+                        <span class="stat-label">3-Star</span>
+                    </div>
+                    <p class="stat-detail">Global Rank 254 in Starters 160</p>
+                </div>
+            </div>
+
+            <div class="stat-card glass" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-icon leetcode">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png"
+                        alt="LeetCode" class="platform-logo">
+                </div>
+                <div class="stat-content">
+                    <h3>LeetCode</h3>
+                    <div class="stat-value">
+                        <span class="counter" data-target="1929">0</span>
+                        <span class="stat-label knight">Knight</span>
+                    </div>
+                    <p class="stat-detail">Top 5% globally</p>
+                </div>
+            </div>
+
+            <div class="stat-card glass" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-icon problems">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" />
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <h3>Problems Solved</h3>
+                    <div class="stat-value">
+                        <span class="counter" data-target="800">0</span>
+                    </div>
+                    <p class="stat-detail">Across all platforms</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Skills & Coursework Side by Side -->
+        <div class="skills-coursework-wrapper">
+            <div class="skills-container glass">
+                <h3>Technical Skills</h3>
+                <div class="skills-grid">
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">Competitive Programming</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Express.js</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">STL</span>
+                    <span class="skill-tag">GitHub</span>
+                    <span class="skill-tag">AutoCAD</span>
+                </div>
+            </div>
+
+            <div class="coursework-container glass">
+                <h3>Relevant Coursework</h3>
+                <div class="coursework-grid">
+                    <div class="course-item">
+                        <span class="course-icon">📊</span>
+                        <span class="course-name">Design & Analysis of Algorithms</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-icon">🗄️</span>
+                        <span class="course-name">Database Management Systems</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-icon">⚙️</span>
+                        <span class="course-name">Operating Systems</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-icon">🌐</span>
+                        <span class="course-name">Computer Networks</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-icon">🖥️</span>
+                        <span class="course-name">Computer Organization & Architecture</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-icon">🎯</span>
+                        <span class="course-name">Game Theory</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="section-header">
+            <h2 class="section-title" data-text="PROJECTS">PROJECTS</h2>
+            <p class="section-subtitle">Featured Engineering Case Studies</p>
+        </div>
+
+        <div class="projects-grid">
+            <article class="project-card glass" data-aos="fade-right">
+                <div class="project-header">
+                    <div class="project-icon">🔐</div>
+                    <div class="project-meta">
+                        <span class="project-role">Full Stack Developer</span>
+                    </div>
+                </div>
+                <h3 class="project-title">Secure Task Management Suite</h3>
+                <p class="project-subtitle">ToDo App with Enterprise-Grade Security</p>
+
+                <div class="tech-stack">
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Express.js</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">JWT</span>
+                </div>
+
+                <div class="project-features">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>
+                            <span class="feature-icon">🔒</span>
+                            Secure authentication flow with 1-hour token expiration
+                        </li>
+                        <li>
+                            <span class="feature-icon">⚡</span>
+                            Async/await patterns for non-blocking execution
+                        </li>
+                        <li>
+                            <span class="feature-icon">🛡️</span>
+                            RESTful API with proper error handling
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="project-links">
+                    <a href="https://github.com/RachitAgrawal127/ToDo-App" class="project-link magnetic"
+                        target="_blank">View Code →</a>
+                </div>
+            </article>
+
+            <article class="project-card glass" data-aos="fade-left">
+                <div class="project-header">
+                    <div class="project-icon">🎮</div>
+                    <div class="project-meta">
+                        <span class="project-role">C++ Systems Engineer</span>
+                    </div>
+                </div>
+                <h3 class="project-title">Multiplayer Snake & Ladder Engine</h3>
+                <p class="project-subtitle">Low-Level Game Design with OOP</p>
+
+                <div class="tech-stack">
+                    <span class="tech-tag">C++</span>
+                    <span class="tech-tag">STL</span>
+                    <span class="tech-tag">OOP</span>
+                </div>
+
+                <div class="project-features">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>
+                            <span class="feature-icon">🗺️</span>
+                            Low-level design using Maps/Vectors for state tracking
+                        </li>
+                        <li>
+                            <span class="feature-icon">👥</span>
+                            Support for 6-player simultaneous gameplay
+                        </li>
+                        <li>
+                            <span class="feature-icon">🎲</span>
+                            Modular architecture with extensible game rules
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="project-links">
+                    <a href="https://github.com/RachitAgrawal127/Snake-and-Ladder-Game" class="project-link magnetic"
+                        target="_blank">View Code →</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Experience Timeline Section -->
+    <section id="experience" class="experience-section">
+        <div class="section-header">
+            <h2 class="section-title" data-text="EXPERIENCE">EXPERIENCE</h2>
+            <p class="section-subtitle">Leadership & Activities</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content glass">
+                    <div class="timeline-header">
+                        <span class="timeline-badge">Leadership</span>
+                    </div>
+                    <h3 class="timeline-title">Event Head</h3>
+                    <p class="timeline-org">Infotsav - College Tech Fest</p>
+                    <ul class="timeline-details">
+                        <li>Managed the flagship competitive programming event</li>
+                        <li>Coordinated 100+ teams and directed a team of technical volunteers</li>
+                        <li>Designed problem sets and evaluation criteria</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content glass">
+                    <div class="timeline-header">
+                        <span class="timeline-badge tech">Technical</span>
+                    </div>
+                    <h3 class="timeline-title">Technical Member</h3>
+                    <p class="timeline-org">AASF - Algorithm & Coding Club</p>
+                    <ul class="timeline-details">
+                        <li>Organizer for the "Weekly Junior Practice Sprint" (Ranked 2nd in Sprint I)</li>
+                        <li>Peer Mentor for junior students in DSA and Competitive Programming</li>
+                        <li>Conducted workshops on advanced algorithms</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content glass">
+                    <div class="timeline-header">
+                        <span class="timeline-badge sponsor">Sponsors</span>
+                    </div>
+                    <h3 class="timeline-title">Sponsors Team</h3>
+                    <p class="timeline-org">Aurora - Cultural Fest</p>
+                    <ul class="timeline-details">
+                        <li>Managed corporate relations and secured partnerships</li>
+                        <li>Coordinated with 15+ potential sponsors</li>
+                        <li>Contributed to successful funding of cultural events</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+        <div class="section-header">
+            <h2 class="section-title" data-text="EDUCATION">EDUCATION</h2>
+            <p class="section-subtitle">Academic Background</p>
+        </div>
+
+        <div class="education-grid">
+            <div class="education-card glass" data-aos="fade-up">
+                <div class="edu-icon">🎓</div>
+                <h3>B.Tech Computer Science & Engineering</h3>
+                <p class="edu-institution">IIIT Gwalior</p>
+                <p class="edu-duration">2023 - Present</p>
+                <div class="edu-highlight">
+                    <span class="cgpa">CGPA: 8.32</span>
+                </div>
+            </div>
+
+            <div class="education-card glass" data-aos="fade-up" data-aos-delay="100">
+                <div class="edu-icon">📝</div>
+                <h3>Entrance Examinations</h3>
+                <div class="exam-stats">
+                    <div class="exam-item">
+                        <span class="exam-name">JEE Advanced</span>
+                        <span class="exam-rank">AIR 11545</span>
+                    </div>
+                    <div class="exam-item">
+                        <span class="exam-name">JEE Mains</span>
+                        <span class="exam-rank">AIR 7725</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact Section -->
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <div class="footer-main">
+                <h2 class="footer-title">Let's Connect</h2>
+                <p class="footer-subtitle">Open for opportunities and collaborations</p>
+
+                <div class="contact-info">
+                    <a href="mailto:rachitag11@gmail.com" class="contact-item magnetic">
+                        <span class="contact-icon">📧</span>
+                        <span class="contact-text">rachitag11@gmail.com</span>
+                    </a>
+                    <a href="tel:+917020058810" class="contact-item magnetic">
+                        <span class="contact-icon">📱</span>
+                        <span class="contact-text">+91-7020058810</span>
+                    </a>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span class="contact-text">Nagpur, Maharashtra / Gwalior, MP</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/rachit-agrawal-091537147/" target="_blank"
+                    class="social-link magnetic" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                </a>
+                <a href="https://github.com/RachitAgrawal127" target="_blank" class="social-link magnetic"
+                    aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                    </svg>
+                </a>
+                <a href="https://codeforces.com/profile/bcs_2023052" target="_blank" class="social-link magnetic"
+                    aria-label="Codeforces">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M4.5 7.5A1.5 1.5 0 016 9v10.5a1.5 1.5 0 01-3 0V9a1.5 1.5 0 011.5-1.5zm6-6A1.5 1.5 0 0112 3v16.5a1.5 1.5 0 01-3 0V3a1.5 1.5 0 011.5-1.5zm6 9a1.5 1.5 0 011.5 1.5v7.5a1.5 1.5 0 01-3 0V12a1.5 1.5 0 011.5-1.5z" />
+                    </svg>
+                </a>
+                <a href="https://www.codechef.com/users/rachit_08" target="_blank" class="social-link magnetic"
+                    aria-label="CodeChef">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M11.007 0c-.787.031-1.515.37-2.222.685a12.27 12.27 0 01-1.864.703c-.635.176-1.3.354-1.814.788-.222.18-.368.425-.473.684.423.071.777.306 1.023.541-.222.012-.442-.012-.663-.012-.222.012-.443.024-.665.073.222.202.373.458.508.72.194.36.361.733.548 1.094.15.281.328.549.52.801.133.173.28.364.48.447.247.095.524.059.784.059.261-.012.52-.035.775-.098-.15.199-.327.373-.54.508-.302.193-.644.324-.958.49-.218.12-.434.26-.613.448-.177.187-.326.412-.394.662.37.035.741.095 1.098.19.218.06.445.12.615.262.122.103.182.26.25.402.05.108.092.241.051.365-.04.112-.162.177-.268.22-.238.096-.488.143-.737.191a9.76 9.76 0 00-.912.219c-.285.094-.579.192-.811.373-.212.167-.321.422-.31.68.012.219.138.416.292.567.28.277.62.45.972.575.356.128.739.19 1.114.226 1.11.107 2.238.035 3.353.035h3.436c.658 0 1.309-.024 1.953-.12.335-.05.68-.12.978-.278.188-.104.355-.261.437-.463.083-.2.072-.427 0-.614-.073-.187-.208-.347-.38-.44-.305-.169-.66-.235-1.004-.284-.178-.024-.358-.035-.537-.059a11.17 11.17 0 01-.762-.12 4.88 4.88 0 01-.608-.156c-.2-.072-.394-.18-.508-.368-.096-.158-.067-.358.026-.508.09-.148.23-.262.383-.346.365-.199.784-.277 1.18-.358.227-.046.518-.202.448-.452-.034-.127-.182-.203-.307-.248-.175-.06-.362-.095-.548-.12-.3-.035-.606-.05-.907-.05-.168 0-.338.012-.508.036a2.08 2.08 0 01-.21.023c.012-.128.06-.251.142-.354.134-.168.325-.28.519-.362.312-.128.647-.195.971-.273.344-.082.701-.156 1.007-.333.2-.118.38-.278.502-.478.178-.293.191-.681.034-.989-.17-.338-.48-.56-.812-.677-.372-.13-.77-.168-1.162-.156-.385.012-.77.074-1.136.178-.378.107-.741.26-1.107.405-.387.154-.802.294-1.215.37.32-.152.608-.37.843-.623.15-.162.275-.345.395-.53.137-.22.244-.469.277-.734.024-.187-.094-.353-.202-.496-.107-.142-.227-.278-.378-.381-.338-.227-.761-.282-1.149-.171-.412.119-.776.371-1.085.67-.268.263-.499.565-.732.86.012-.167-.017-.334-.062-.496z" />
+                    </svg>
+                </a>
+                <a href="https://leetcode.com/u/rachitag11/" target="_blank" class="social-link magnetic"
+                    aria-label="LeetCode">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Rachit Agrawal. Crafted with ☕ and algorithms.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
