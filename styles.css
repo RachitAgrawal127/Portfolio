@@ -1460,15 +1460,22 @@ section {
 
     .navbar {
         padding: 1rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     /* Show hamburger button on mobile */
     .nav-toggle {
         display: flex;
+        order: 2;
+        position: relative;
+        right: 0;
     }
 
     /* Mobile Navigation Menu */
     .nav-links {
+        display: flex;
         position: fixed;
         top: 0;
         right: -100%;
@@ -1480,18 +1487,29 @@ section {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 2rem;
+        gap: 1.5rem;
         transition: right 0.3s ease;
         z-index: 1001;
         border-left: 1px solid var(--glass-border);
+        pointer-events: auto;
     }
 
     .nav-links.active {
         right: 0;
     }
 
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
     .nav-links a {
+        display: block;
         font-size: 1.2rem;
+        padding: 1rem 2rem;
+        width: 100%;
+        pointer-events: auto;
+        cursor: pointer;
     }
 
     .nav-cta {
