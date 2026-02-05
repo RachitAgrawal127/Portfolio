@@ -4,29 +4,37 @@
 ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize all features
-    initParticles();
+    // Detect if mobile device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+
+    // Initialize all features with mobile awareness
+    initParticles(isMobile);
     initCustomCursor();
     initTypedEffect();
-    initVanillaTilt();
+    if (!isMobile) {
+        initVanillaTilt(); // Disable tilt on mobile for performance
+    }
     initScrollAnimations();
     initCounterAnimation();
-    initMagneticButtons();
+    if (!isMobile) {
+        initMagneticButtons(); // Disable magnetic effect on mobile
+    }
     initSmoothScroll();
+    initMobileMenu(); // Initialize mobile menu
 });
 
 /* ============================================
    PARTICLES BACKGROUND
 ============================================ */
-function initParticles() {
+function initParticles(isMobile = false) {
     tsParticles.load("tsparticles", {
         fullScreen: { enable: false },
         background: { color: { value: "transparent" } },
-        fpsLimit: 60,
+        fpsLimit: isMobile ? 30 : 60, // Lower FPS on mobile
         interactivity: {
             events: {
                 onHover: {
-                    enable: true,
+                    enable: !isMobile, // Disable on mobile for performance
                     mode: "grab"
                 },
                 resize: true
@@ -46,7 +54,7 @@ function initParticles() {
             links: {
                 color: "#ffffff",
                 distance: 150,
-                enable: true,
+                enable: !isMobile, // Disable particle links on mobile
                 opacity: 0.1,
                 width: 1
             },
@@ -55,17 +63,17 @@ function initParticles() {
                 enable: true,
                 outModes: { default: "bounce" },
                 random: true,
-                speed: 0.8,
+                speed: isMobile ? 0.3 : 0.8, // Slower on mobile
                 straight: false
             },
             number: {
                 density: { enable: true, area: 1000 },
-                value: 60
+                value: isMobile ? 15 : 60 // Much fewer particles on mobile
             },
             opacity: {
                 value: { min: 0.1, max: 0.5 },
                 animation: {
-                    enable: true,
+                    enable: !isMobile, // Disable opacity animation on mobile
                     speed: 1,
                     minimumValue: 0.1
                 }
@@ -74,7 +82,7 @@ function initParticles() {
             size: {
                 value: { min: 1, max: 3 },
                 animation: {
-                    enable: true,
+                    enable: !isMobile, // Disable size animation on mobile
                     speed: 2,
                     minimumValue: 0.5
                 }
@@ -436,17 +444,62 @@ window.addEventListener('scroll', () => {
 /* ============================================
    KINETIC TYPOGRAPHY (Section Headers)
 ============================================ */
-window.addEventListener('scroll', () => {
-    const sectionTitles = document.querySelectorAll('.section-title');
+// Only run on desktop for performance
+if (window.innerWidth > 768) {
+    window.addEventListener('scroll', () => {
+        const sectionTitles = document.querySelectorAll('.section-title');
 
-    sectionTitles.forEach(title => {
-        const rect = title.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        sectionTitles.forEach(title => {
+            const rect = title.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
 
-        if (isVisible) {
-            const scrollPercent = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
-            const translateX = (scrollPercent - 0.5) * 20; // Max 10px movement
-            title.style.transform = `translateX(${translateX}px)`;
-        }
+            if (isVisible) {
+                const scrollPercent = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+                const translateX = (scrollPercent - 0.5) * 20; // Max 10px movement
+                title.style.transform = `translateX(${translateX}px)`;
+            }
+        });
     });
-});
+}
+
+/* ============================================
+   MOBILE MENU
+============================================ */
+function initMobileMenu() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const navOverlay = document.querySelector('.nav-overlay');
+    const navLinkItems = document.querySelectorAll('.nav-links a');
+
+    if (!navToggle || !navLinks) return;
+
+    // Toggle menu
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        if (navOverlay) navOverlay.classList.toggle('active');
+
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close menu when clicking overlay
+    if (navOverlay) {
+        navOverlay.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+
+    // Close menu when clicking a link
+    navLinkItems.forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+            if (navOverlay) navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+}
